@@ -2,6 +2,7 @@
 :root {
   --font: "Montserrat", sans-serif;
 }
+
 * {
   padding: 0;
   margin: 0;
@@ -134,7 +135,7 @@ main {
 .input-tarefa-container {
   display: flex;
   align-items: center;
-  justify-self: center;
+  justify-content: center;
   background-color: #151515;
   border-radius: 0 9px 9px 0;
   width: 45%;
@@ -179,7 +180,7 @@ main {
 .icon-container {
   background-color: #151515;
   min-height: 6vh;
-  min-width: 3vw;
+  min-width: 12.2%;
   border-radius: 0 9px 9px 0;
   display: flex;
   align-items: center;
