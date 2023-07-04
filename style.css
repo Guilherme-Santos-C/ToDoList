@@ -80,8 +80,6 @@ body {
   flex-direction: column;
   align-items: center;
   
-  
-  
 }
 
 header {
@@ -219,6 +217,17 @@ main {
 .lista-tarefas {
   width: 100%;
   height: 95%;
+  display: block;
+}
+
+.lista-tarefas-concluida {
+  width: 100%;
+  height: 95%;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 12.5%;
+  
 }
 
 .body-lista {
