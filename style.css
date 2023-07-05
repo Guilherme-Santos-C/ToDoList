@@ -27,6 +27,19 @@ body {
   border-radius: 20px;       /* roundness of the scroll thumb */ 
 }
 
+.body-lista-concluida::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+.body-lista-concluida::-webkit-scrollbar-track {
+  background: #121212;        /* color of the tracking area */ 
+}
+
+.body-lista-concluida::-webkit-scrollbar-thumb {
+  background-color: #202020;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */ 
+}
+
 .luz-1 {
   position: absolute;
   background-color: #0072ff;
@@ -227,10 +240,14 @@ main {
   flex-direction: column;
   justify-content: flex-start;
   margin-top: 12.5%;
-  
 }
 
 .body-lista {
+  max-height: 281px;
+  overflow-y: scroll;
+}
+
+.body-lista-concluida {
   max-height: 281px;
   overflow-y: scroll;
 }
