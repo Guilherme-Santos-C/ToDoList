@@ -24,29 +24,17 @@ buttonTarefas.onclick = () => {
   alternaTabelas();
 };
 
-const tarefasA = [
-  "Lavar a louça",
-  "Estudar sla",
-  "Dar comida para os pets",
-  "Ir ao centro",
-  "a",
-  "b",
-  "c"
-];
-
-const tarefasB = ["Acordar cedo na segunda", "Ir ao Novo Restaurante"];
-
 function atualizaTabelaA() {
 
   tabelaAbody.innerText = "";
-  for(let i in tarefasA){
+  for(let i in getDBA()){
 
     let newContainerItem = document.createElement("div")
     newContainerItem.setAttribute("class", "container-item-list")
     newContainerItem.innerHTML = `
     <div class="border-left-item"></div>
     <div class="item-centro">
-      <p>${tarefasA[i]}</p>
+      <p>${getDBA()[i]}</p>
       <span><img src="icon-check.svg" class="icon-check"></span>
     </div>
     <div class="divide-icon"></div>
@@ -61,14 +49,14 @@ function atualizaTabelaA() {
 function atualizaTabelaB() {
 
   tabelaBbody.innerText = "";
-  for(let i in tarefasB){
+  for(let i in getDBB()){
 
     let newContainerItem = document.createElement("div")
     newContainerItem.setAttribute("class", "container-item-list")
     newContainerItem.innerHTML = `
     <div class="border-left-item"></div>
     <div class="item-centro">
-      <p>${tarefasB[i]}</p>
+      <p>${getDBB()[i]}</p>
     </div>
     <div class="divide-icon"></div>
     <div class="item-right"><span><img src="icon-delete.svg" class="icon-delete"></span></div>
@@ -78,5 +66,28 @@ function atualizaTabelaB() {
   }
 }
 
+const getDBA = () => {
+  let DBA = JSON.parse(localStorage.getItem("tabelaClienteA")) ?? [];
+  return DBA;
+}
+
+const setDBA = (e) => {
+  let DBA = getDBA() ?? [];
+  DBA.push(e)
+  localStorage.setItem("tabelaClienteA", JSON.stringify(DBA))
+}
+
+const getDBB = () => {
+  let DBB = JSON.parse(localStorage.getItem("tabelaClienteB")) ?? [];
+  return DBB;
+}
+
+const setDBB = (e) => {
+  let DBB = getDBB() ?? [];
+  DBB.push(e)
+  localStorage.setItem("tabelaClienteB", JSON.stringify(DBB))
+}
+
 atualizaTabelaA();
 atualizaTabelaB();
+
