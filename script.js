@@ -10,6 +10,18 @@ const modalButtonSim = document.getElementById("a4");
 const modalButtonNao = document.getElementById("a5");
 let input = document.querySelector(".input-tarefa");
 let booleanTabelas = true;
+let tarefasAtuais = document.querySelector("#tarefa-concluida");
+
+buttonTarefas.addEventListener("click", () => {
+  switch(buttonTarefas.innerHTML){
+    case "Tarefas Completas":
+      buttonTarefas.innerHTML = "Tarefas Incompletas"
+      break;
+    case "Tarefas Incompletas":
+        buttonTarefas.innerHTML = "Tarefas Completas"
+        break;
+  }
+})
 
 modalButtonNao.onclick = () => {
   fechaModal();
@@ -122,6 +134,8 @@ function atualizaTabelas() {
 
     tabelaBbody.appendChild(newContainerItem);
   }
+
+  atualizaNumerosDeTarefas()
 }
 
 function enviarClienteTabelaB(index) {
@@ -203,4 +217,12 @@ tabelaBbody.addEventListener("click", (event) => {
 
 modalButtonSim.addEventListener("click", () => {});
 
+function atualizaNumerosDeTarefas() {
+  const array = getDBA();
+  let count = array.length
+  tarefasAtuais.innerHTML = `Tarefas Atuais ( ${count} ) :`
+  
+}
+
+atualizaNumerosDeTarefas()
 atualizaTabelas();
