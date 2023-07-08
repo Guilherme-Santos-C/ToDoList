@@ -318,3 +318,118 @@ span {
   height: 100%;
   border-radius: 0 9px 9px 0;
 }
+
+.container-modal {
+  background-color: #1212129c;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(1px);
+  
+}
+
+.container-modal-fechado {
+  background-color: #1212129c;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(1px);
+  
+}
+
+.container-modal-aberto {
+  background-color: #1212129c;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(1px);
+  
+}
+
+.janela-modal-gradient {
+  width: 60.1%;
+  height: 30.2%;
+  background-image: linear-gradient(
+    109.26deg,
+    rgba(255, 255, 255, 1) 1%,
+    
+    rgba(255, 255, 255, 1) 70%,
+    rgba(255, 255, 255, 0) 100%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  border-radius: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.janela-modal {
+  width: 60%;
+  height: 30%;
+  background-color: #1E1E1E;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff ;
+  gap: 25px;
+  
+}
+
+.text-modal {
+  font-size: 20px;
+  font-family: var(--font);
+}
+
+.container-button-modal {
+  display: flex;
+  gap: 10px;
+}
+
+.buttons-modal {
+  width: 5vw;
+  height: 3.5vh;
+  background-color: cadetblue;
+  border: none;
+  border-radius: 3px;
+ }
+ 
+ #a4 {
+  background-color: cadetblue;
+ }
+ #a4:hover {
+  background-color: cadetblue;
+  opacity: 0.7;
+  cursor: pointer;
+ }
+
+ #a5 {
+  background-color: tomato;
+ }
+ #a5:hover {
+  background-color: tomato;
+  opacity: 0.7;
+  cursor: pointer;
+ }
+

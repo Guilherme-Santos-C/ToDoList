@@ -3,9 +3,22 @@ const tabelaAbody = document.querySelector(".body-lista");
 const tabelaBbody = document.querySelector(".body-lista-concluida");
 const tabelaA = document.querySelector(".lista-tarefas");
 const tabelaB = document.querySelector(".lista-tarefas-concluida");
-const iconAdicionar = document.querySelector(".icon-container")
-const iconCheck = document.querySelector(".icon-check")
+const iconAdicionar = document.querySelector(".icon-container");
+const iconCheck = document.querySelector(".icon-check");
+const modal = document.querySelector("#Amodal");
+const modalButtonSim = document.getElementById("a4");
+const modalButtonNao = document.getElementById("a5");
+let input = document.querySelector(".input-tarefa");
 let booleanTabelas = true;
+
+modalButtonNao.onclick = () => {
+  fechaModal();
+}
+
+modal.onclick = (e) => {
+  if(e.target === modal)
+  fechaModal();
+}
 
 function alternaTabelas() {
   switch (booleanTabelas) {
@@ -21,6 +34,14 @@ function alternaTabelas() {
 
   booleanTabelas ? (booleanTabelas = false) : (booleanTabelas = true);
 }
+
+function abreModal() {
+ modal.setAttribute("class", "container-modal-aberto")
+}
+
+function fechaModal() {
+  modal.setAttribute("class", "container-modal-fechado")
+ }
 
 buttonTarefas.onclick = () => {
   alternaTabelas();
@@ -48,19 +69,20 @@ const setDBB = (e) => {
   localStorage.setItem("tabelaClienteB", JSON.stringify(DBB));
 };
 
-
 function criarTarefas() {
-  let valueInput = document.querySelector(".input-tarefa");
-
-  if(valueInput.value !== ""){
-    setDBA(valueInput.value);
+  if (input.value !== "") {
+    setDBA(input.value);
     atualizaTabelas();
   }
-
-  valueInput.value = "";
+  input.value = "";
 }
 
-iconAdicionar.addEventListener("click", () => { criarTarefas()})
+iconAdicionar.addEventListener("click", () => {
+  criarTarefas();
+});
+input.addEventListener("keypress", (e) => {
+  e.key === "Enter" ? criarTarefas() : false;
+});
 
 function atualizaTabelas() {
   // tabela A
@@ -73,14 +95,14 @@ function atualizaTabelas() {
     <div class="border-left-item"></div>
     <div class="item-centro">
       <p>${getDBA()[i]}</p>
-      <span><img src="icon-check.svg" class="icon-check" onclick = "alerta()"></span>
+      <span><img src="icon-check.svg" class="icon-check"></span>
     </div>
     <div class="divide-icon"></div>
     <div class="item-right"><span><img src="icon-delete.svg" class="icon-delete"></span></div>
     </div>
     `;
 
-    tabelaAbody.appendChild(newContainerItem);  
+    tabelaAbody.appendChild(newContainerItem);
   }
 
   // tabela B
@@ -114,12 +136,71 @@ function enviarClienteTabelaB(index) {
 
   // Adicionar o item à tabela B
   clientesB.unshift(item);
-  
+
   // Atualizar o localStorage com os dados atualizados
   localStorage.setItem("tabelaClienteB", JSON.stringify(clientesB));
   localStorage.setItem("tabelaClienteA", JSON.stringify(clientesA));
 
   atualizaTabelas();
 }
+
+function deletaClienteA(index) {
+  const arrayC = getDBA();
+  arrayC.splice(index, 1);
+  localStorage.setItem("tabelaClienteA", JSON.stringify(arrayC));
+  atualizaTabelas();
+}
+
+function deletaClienteB(index) {
+  const arrayC = getDBB();
+  arrayC.splice(index, 1);
+  localStorage.setItem("tabelaClienteB", JSON.stringify(arrayC));
+  atualizaTabelas();
+}
+
+tabelaAbody.addEventListener("click", (event) => {
+  const target = event.target;
+  const containerItem = target.closest(".container-item-list");
+
+  if (containerItem) {
+    const itemId = containerItem.getAttribute("id");
+
+    // Verifica se o botão de exclusão foi clicado
+    if (target.classList.contains("icon-delete")) {
+      abreModal();
+
+      // Atribui evento de clique ao botão "SIM" apenas uma vez
+      const modalButtonSimOnce = () => {
+        deletaClienteA(itemId);
+        fechaModal();
+        modalButtonSim.removeEventListener("click", modalButtonSimOnce);
+      };
+
+      modalButtonSim.addEventListener("click", modalButtonSimOnce);
+    }
+
+    // Verifica se o ícone de check foi clicado
+    if (target.classList.contains("icon-check")) {
+      enviarClienteTabelaB(itemId);
+    }
+  }
+});
+
+
+tabelaBbody.addEventListener("click", (event) => {
+  const target = event.target;
+  const containerItem = target.closest(".container-item-list");
+
+  if (containerItem) {
+    const itemId = containerItem.getAttribute("id");
+
+    // Verifica se o botão de exclusão foi clicado
+    if (target.classList.contains("icon-delete")) {
+      deletaClienteB(itemId);
+    }
+  }
+});
+
+modalButtonSim.addEventListener("click", () => {});
 
 atualizaTabelas();
