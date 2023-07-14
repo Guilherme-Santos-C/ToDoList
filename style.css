@@ -267,6 +267,20 @@ main {
   animation: itemList 0.2s ease-out;
 }
 
+.container-item-list:hover {
+  background-color: #202020;
+  width: 96%;
+  min-height: 6vh;
+  max-height: 8vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 9px;
+  margin-bottom: 10px;
+  animation: itemList 0.2s ease-out;
+  transform: scale(1.005);
+}
+
 .border-left-item {
   background-color: #0072ff;
   min-height: 7vh;
