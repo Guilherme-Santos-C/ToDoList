@@ -567,4 +567,52 @@ span {
       opacity: 0.6;
       cursor: pointer;
     }
+    .text-modal {
+      font-size: 24px;
+      font-family: var(--font);
+    }
+    .item-centro {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      padding: 10px;
+      color: #9f9f9f;
+      font-size: 24px;
+      font-family: var(--font);
+    }
+    .title-tarefas {
+      color: #0072ff;
+      font-size: 26px;
+      font-family: var(--font);
+      margin-bottom: 8px;
+    }
+    .tarefas-estado-button {
+      min-width: 20%;
+      font-size: 23px;
+      color: #fff;
+      border: none;
+      border-radius: 11px;
+      background-color: #0072ff;
+      font-family: var(--font);
+      padding: 8px;
+      transition: 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .tarefas-estado-button:hover {
+      width: 20%;
+      font-size: 23px;
+      color: #fff;
+      border: none;
+      border-radius: 11px;
+      background-color: #0072ff;
+      font-family: var(--font);
+      cursor: pointer;
+      opacity: 0.5;
+      padding: 8px;
+    }
   }
