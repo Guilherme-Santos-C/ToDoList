@@ -113,7 +113,7 @@ h1 {
 }
 
 .tarefas-estado-button {
-  width: 20%;
+  min-width: 20%;
   font-size: 17px;
   color: #fff;
   border: none;
@@ -122,6 +122,9 @@ h1 {
   font-family: var(--font);
   padding: 8px;
   transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tarefas-estado-button:hover {
@@ -472,3 +475,96 @@ span {
   }
  }
 
+ @media (max-width: 1100px)
+  {
+    aside{
+    display: none;
+    }
+    .input-tarefa-container {
+      width: 80vw;
+      margin-bottom: 5vh;
+      animation: modal 0.2s ease-out;
+    }
+
+    .input-tarefa {
+      width: 80vw;
+      height: 6vh;
+      background-color: #151515;
+      border: none;
+      font-family: var(--font);
+      padding: 8px;
+      color: #fff;
+      display: block;
+    }
+    
+    .input-tarefa:focus {
+      width: 80vw;
+      height: 6vh;
+      background-color: #151515;
+      border: none;
+      font-family: var(--font);
+      padding: 8px;
+      color: #fff;
+      box-shadow: 0 0 0 0;
+      outline: 0;
+    }
+    
+    .divide-icon {
+      background-color: #272727;
+      min-height: 4.5vh;
+      min-width: 0.24vw;
+      border-radius: 20px;
+    }
+    
+    .icon-container {
+      background-color: #151515;
+      min-height: 6vh;
+      min-width: 9.2%;
+      border-radius: 0 9px 9px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .icon-container:hover {
+      background-color: #151515;
+      height: 6vh;
+      width: 3vw;
+      border-radius: 0 9px 9px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0.6;
+    }
+    
+    .icon-adicionar {
+      min-width: 72%;
+    }
+    .item-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 15%;
+      height: 100%;
+      border-radius: 0 9px 9px 0;
+    }
+    .icon-check {
+      width: 4.5vw;
+    }
+    .icon-check:hover {
+      width: 4.5vw;
+      opacity: 0.6;
+      cursor: pointer;
+    }
+    
+    .icon-delete {
+      width: 4.5vw;
+    }
+    
+    .icon-delete:hover {
+      width: 4.5vw;
+      opacity: 0.6;
+      cursor: pointer;
+    }
+  }
